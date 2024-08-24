@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "761885351621",
+    "project_id": "lsp-assesment",
+    "storage_bucket": "lsp-assesment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761885351621:android:c7bf04475c3b46a7b65aac",
+        "android_client_info": {
+          "package_name": "com.example.lsp_assesment_jmp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9fLpDfNpWiFM7SXltDgKqxZ4CKLxdryM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

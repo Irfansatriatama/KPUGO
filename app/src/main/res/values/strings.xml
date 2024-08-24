@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">SC_LSPAssement_JMP</string>
+    <string name="button_info">INFORMASI PESERTA</string>
+    <string name="button_daftar">PENDAFTARAN</string>
+    <string name="button_about">ABOUT DEVELOPER</string>
+    <string name="button_logout">LOGOUT</string>
+    <string name="form_pendaftaran_peserta">FORM PENDAFTARAN PESERTA</string>
+    <string name="nama">Nama</string>
+    <string name="nomor_handphone">08XXXXXXXXXX</string>
+    <string name="nik">NIK</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="alamat">Alamat</string>
+    <string name="select_date">Pilih Tanggal Lahir</string>
+    <string name="add_data">ADD DATA</string>
+    <string name="lokasi_pendaftaran">Lokasi Pendaftaran</string>
+    <string name="cek_lokasi">Cek Lokasi</string>
+    <string name="add_img">Tambah Gambar</string>
+    <string name="namaDev">Muhammad Irfan Satriatama</string>
+    <string name="emailDev">muhamamad.irfan.satriatama.tik21@mhsw.pnj.ac.id</string>
+    <string name="nim">2107412052</string>
+
+    <string-array name="jenis_kelamin">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+</resources>

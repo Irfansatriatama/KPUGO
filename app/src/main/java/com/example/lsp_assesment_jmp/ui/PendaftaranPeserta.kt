@@ -156,8 +156,17 @@ class PendaftaranPeserta : AppCompatActivity() {
         val jenisKelamin = binding.autoTv.text.toString().trim()
         val tanggalsurvey = binding.etTtl.text.toString().trim()
         val lokasi = binding.etLokasi.text.toString().trim()
+        val gambar = imageUri.toString().trim()
 
-        val pemilih = Peserta(
+        // Convert the imageUri to a String only if it's not null
+        val imgUri = Uri.parse(gambar)
+
+        if (gambar == null) {
+            Toast.makeText(this, "Gambar tidak valid", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val peserta = Peserta(
             id = 0,
             nik = nik,
             nama = nama,
@@ -165,10 +174,10 @@ class PendaftaranPeserta : AppCompatActivity() {
             jenisKelamin = jenisKelamin,
             tanggal = tanggalsurvey,
             lokasi = lokasi,
-            gambar = imageUri.toString()
+            gambar = imgUri
         )
 
-        val success = db.addPeserta(pemilih)
+        val success = db.addPeserta(peserta)
         if (success) {
             Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
             finish()

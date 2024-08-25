@@ -54,7 +54,7 @@ class SqliteHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME, 
             put(COLUMN_JENIS_KELAMIN, peserta.jenisKelamin)
             put(COLUMN_TANGGAL, peserta.tanggal)
             put(COLUMN_LOKASI, peserta.lokasi)
-            put(COLUMN_GAMBAR, peserta.gambar ?: "")
+            put(COLUMN_GAMBAR, peserta.gambar.toString())
         }
 
         val result = db.insert(TABLE_NAME, null, values)
@@ -81,7 +81,7 @@ class SqliteHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME, 
 
             val imgUri = Uri.parse(img)
 
-            val peserta = Peserta(id, nik, nama, nohp, jk, tgl, lokasi, imgUri.toString())
+            val peserta = Peserta(id, nik, nama, nohp, jk, tgl, lokasi, imgUri)
             listPeserta.add(peserta)
 
         }

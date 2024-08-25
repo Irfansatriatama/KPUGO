@@ -1,5 +1,7 @@
 package com.example.lsp_assesment_jmp.model
 
+import android.net.Uri
+
 data class Peserta(
     val id: Int,
     val nik: String,
@@ -8,5 +10,5 @@ data class Peserta(
     val jenisKelamin: String,
     val tanggal: String,
     val lokasi: String,
-    val gambar: String?
+    val gambar: Uri
 )

@@ -1,4 +1,4 @@
-package com.example.lsp_assesment_jmp
+package com.example.lsp_assesment_jmp.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,13 +16,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Aksi untuk button Informasi Peserta
+        // Aksi untuk button Informasi com.example.lsp_assesment_jmp.model.Peserta
         binding.buttonInfo.setOnClickListener {
             val intent = Intent(this, InformasiPeserta::class.java)
             startActivity(intent)
         }
 
-        // Aksi untuk button Pendaftaran Peserta
+        // Aksi untuk button Pendaftaran com.example.lsp_assesment_jmp.model.Peserta
         binding.buttonDaftar.setOnClickListener {
             val intent = Intent(this, PendaftaranPeserta::class.java)
             startActivity(intent)

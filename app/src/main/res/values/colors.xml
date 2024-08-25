@@ -1,5 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="black">#000000</color> <!-- Hitam -->
+    <color name="white">#FFFFFF</color> <!-- Putih -->
+    <color name="gold">#FFD700</color> <!-- Emas -->
+
+    <!-- Warna RGB -->
+    <color name="custom_green">#00FF00</color> <!-- RGB (0, 255, 0) -->
+    <color name="custom_blue">#0000FF</color> <!-- RGB (0, 0, 255) -->
+    <color name="red">#D32F2F</color> <!-- Merah -->
+
+    <!-- Warna tambahan -->
+
+    <color name="custom_orange">#FFA500</color> <!-- RGB (255, 165, 0) -->
+    <color name="yellow">#FFFF00</color> <!-- Yellow: RGB (255, 255, 0) -->
+    <color name="cyan">#00FFFF</color> <!-- Cyan: RGB (0, 255, 255) -->
+    <color name="lime">#00FF00</color> <!-- Lime: RGB (0, 255, 0) -->
+    <color name="magenta">#FF00FF</color> <!-- Magenta: RGB (255, 0, 255) -->
+    <color name="purple">#800080</color> <!-- Purple: RGB (128, 0, 128) -->
+    <color name="navy">#000080</color> <!-- Navy: RGB (0, 0, 128) -->
+    <color name="teal">#008080</color> <!-- Teal: RGB (0, 128, 128) -->
+    <color name="olive">#808000</color> <!-- Olive: RGB (128, 128, 0) -->
+
+    <!-- Warna gabungan -->
+    <color name="merged_color">#7F7FFF</color> <!-- Contoh hasil penggabungan warna -->
 </resources>

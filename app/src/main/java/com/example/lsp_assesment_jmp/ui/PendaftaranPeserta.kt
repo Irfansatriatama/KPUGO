@@ -1,6 +1,6 @@
-package com.example.lsp_assesment_jmp
+package com.example.lsp_assesment_jmp.ui
 
-import Peserta
+import com.example.lsp_assesment_jmp.model.Peserta
 import android.Manifest
 import android.app.AlertDialog
 import android.app.DatePickerDialog
@@ -18,7 +18,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.lsp_assesment_jmp.R
 import com.example.lsp_assesment_jmp.databinding.ActivityPendaftaranPesertaBinding
+import com.example.lsp_assesment_jmp.model.SqliteHelper
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.io.File
@@ -65,6 +67,7 @@ class PendaftaranPeserta : AppCompatActivity() {
             checkCameraPermission()
         }
 
+        // Handle date picker
         binding.btnTtl.setOnClickListener {
             val calendar = Calendar.getInstance()
             val year = calendar.get(Calendar.YEAR)
@@ -90,18 +93,69 @@ class PendaftaranPeserta : AppCompatActivity() {
         }
     }
 
-    private fun saveData() {
-        val nik = binding.etNik.text.toString()
-        val nama = binding.etNama.text.toString()
-        val nohp = binding.etNohp.text.toString()
-        val jenisKelamin = binding.autoTv.text.toString()
-        val tanggalsurvey = binding.etTtl.text.toString()
-        val lokasi = binding.etLokasi.text.toString()
+    private fun validateInput(): Boolean {
+        val nik = binding.etNik.text.toString().trim()
+        val nama = binding.etNama.text.toString().trim()
+        val nohp = binding.etNohp.text.toString().trim()
+        val jenisKelamin = binding.autoTv.text.toString().trim()
+        val tanggalsurvey = binding.etTtl.text.toString().trim()
+        val lokasi = binding.etLokasi.text.toString().trim()
+
+        if (nik.isEmpty()) {
+            binding.etNik.error = "NIK harus diisi"
+            Toast.makeText(this, "NIK harus diisi", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (nama.isEmpty()) {
+            binding.etNama.error = "Nama harus diisi"
+            Toast.makeText(this, "Nama harus diisi", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (nohp.isEmpty()) {
+            binding.etNohp.error = "Nomor HP harus diisi"
+            Toast.makeText(this, "Nomor HP harus diisi", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (jenisKelamin.isEmpty()) {
+            binding.autoTv.error = "Jenis kelamin harus dipilih"
+            Toast.makeText(this, "Jenis kelamin harus dipilih", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (tanggalsurvey.isEmpty()) {
+            binding.etTtl.error = "Tanggal lahir harus diisi"
+            Toast.makeText(this, "Tanggal lahir harus diisi", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        if (lokasi.isEmpty()) {
+            binding.etLokasi.error = "Lokasi harus diisi"
+            Toast.makeText(this, "Lokasi harus diisi", Toast.LENGTH_SHORT).show()
+            return false
+        }
 
         if (imageUri == null) {
-            Toast.makeText(this, "Please select or capture an image", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Silakan pilih atau ambil gambar", Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        return true
+    }
+
+    private fun saveData() {
+        if (!validateInput()) {
             return
         }
+
+        val nik = binding.etNik.text.toString().trim()
+        val nama = binding.etNama.text.toString().trim()
+        val nohp = binding.etNohp.text.toString().trim()
+        val jenisKelamin = binding.autoTv.text.toString().trim()
+        val tanggalsurvey = binding.etTtl.text.toString().trim()
+        val lokasi = binding.etLokasi.text.toString().trim()
 
         val pemilih = Peserta(
             id = 0,
@@ -116,10 +170,10 @@ class PendaftaranPeserta : AppCompatActivity() {
 
         val success = db.addPeserta(pemilih)
         if (success) {
-            Toast.makeText(this, "Successfully saved new data pemilih", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Data berhasil disimpan", Toast.LENGTH_SHORT).show()
             finish()
         } else {
-            Toast.makeText(this, "Failed to save data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Gagal menyimpan data", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -154,7 +208,7 @@ class PendaftaranPeserta : AppCompatActivity() {
         if (intent.resolveActivity(packageManager) != null) {
             startActivityForResult(intent, CAMERA_REQUEST_CODE)
         } else {
-            Toast.makeText(this, "No application available to capture images", Toast.LENGTH_SHORT)
+            Toast.makeText(this, "Tidak ada aplikasi yang dapat digunakan untuk mengambil gambar", Toast.LENGTH_SHORT)
                 .show()
         }
     }
@@ -199,7 +253,7 @@ class PendaftaranPeserta : AppCompatActivity() {
                 if (!shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
                     showPermissionDeniedDialog()
                 } else {
-                    Toast.makeText(this, "Camera permission is required", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Izin kamera diperlukan", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -207,15 +261,15 @@ class PendaftaranPeserta : AppCompatActivity() {
 
     private fun showPermissionDeniedDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Permission Required")
-            .setMessage("Camera permission is required to capture images. Please enable it in the app settings.")
-            .setPositiveButton("Go to Settings") { _, _ ->
+            .setTitle("Izin Diperlukan")
+            .setMessage("Izin kamera diperlukan untuk mengambil gambar. Silakan aktifkan di pengaturan aplikasi.")
+            .setPositiveButton("Buka Pengaturan") { _, _ ->
                 val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                 val uri = Uri.fromParts("package", packageName, null)
                 intent.data = uri
                 startActivity(intent)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton("Batal", null)
             .show()
     }
 
@@ -237,13 +291,11 @@ class PendaftaranPeserta : AppCompatActivity() {
                 val geocoder = Geocoder(this, Locale.getDefault())
                 val addresses: List<Address>? = geocoder.getFromLocation(location.latitude, location.longitude, 1)
                 if (addresses != null && addresses.isNotEmpty()) {
-                    val address = addresses[0].getAddressLine(0)
+                    val address: String = addresses[0].getAddressLine(0)
                     binding.etLokasi.setText(address)
-                } else {
-                    binding.etLokasi.setText("Address not available")
                 }
             } else {
-                binding.etLokasi.setText("Location not available")
+                Toast.makeText(this, "Lokasi tidak ditemukan", Toast.LENGTH_SHORT).show()
             }
         }
     }

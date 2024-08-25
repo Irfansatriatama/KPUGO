@@ -1,3 +1,5 @@
+package com.example.lsp_assesment_jmp.model
+
 data class Peserta(
     val id: Int,
     val nik: String,

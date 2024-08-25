@@ -2,7 +2,14 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.LSP_Assesment_JMP" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/red</item> <!-- Gunakan warna merah untuk elemen utama -->
+        <item name="colorPrimaryVariant">@color/black</item> <!-- Variasi warna hitam -->
+        <item name="colorOnPrimary">@color/white</item> <!-- Warna teks pada elemen utama -->
+        <item name="colorSecondary">@color/gold</item> <!-- Gunakan warna emas untuk elemen sekunder -->
+        <item name="colorOnSecondary">@color/black</item> <!-- Warna teks pada elemen sekunder -->
+        <item name="colorSurface">@color/white</item> <!-- Warna permukaan elemen -->
+        <item name="colorOnBackground">@color/black</item> <!-- Warna teks pada latar belakang -->
+        <item name="colorOnSurface">@color/black</item> <!-- Warna teks pada permukaan -->
     </style>
 
     <style name="Theme.LSP_Assesment_JMP" parent="Base.Theme.LSP_Assesment_JMP" />

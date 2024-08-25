@@ -1,10 +1,12 @@
-package com.example.lsp_assesment_jmp
+package com.example.lsp_assesment_jmp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lsp_assesment_jmp.databinding.ActivityInformasiPesertaBinding
+import com.example.lsp_assesment_jmp.model.PesertaAdapter
+import com.example.lsp_assesment_jmp.model.SqliteHelper
 import kotlinx.coroutines.launch
 
 class InformasiPeserta : AppCompatActivity() {
@@ -20,22 +22,22 @@ class InformasiPeserta : AppCompatActivity() {
         setContentView(binding.root)
 
         db = SqliteHelper(this)
-        pesertaAdapter = PesertaAdapter(db.viewPeserta(), this)
+        pesertaAdapter = PesertaAdapter(db.viewPeserta())
 
         binding.rvData.apply {
             layoutManager = LinearLayoutManager(this@InformasiPeserta)
             adapter = pesertaAdapter
         }
-
-
     }
+
     private fun refreshData() {
         lifecycleScope.launch {
             pesertaAdapter.refreshData(db.viewPeserta())
         }
     }
+
     override fun onResume() {
         super.onResume()
-        pesertaAdapter.refreshData(db.viewPeserta())
+        refreshData()
     }
 }

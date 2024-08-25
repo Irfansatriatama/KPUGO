@@ -1,6 +1,5 @@
-package com.example.lsp_assesment_jmp
+package com.example.lsp_assesment_jmp.model
 
-import Peserta
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -13,7 +12,7 @@ class SqliteHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME, 
     companion object{
         private const val DATABASE_NAME = "KPUGO.db"
         private const val DATABASE_VERSION = 2
-        private const val TABLE_NAME = "Peserta"
+        private const val TABLE_NAME = "com.example.lsp_assesment_jmp.model.Peserta"
         private const val COLUMN_ID = "id"
         private const val COLUMN_NIK = "nik"
         private const val COLUMN_NAMA = "nama"

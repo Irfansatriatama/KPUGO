@@ -5,26 +5,40 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
+
+    <TextView
+        android:id="@id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="40sp"
+        android:text="KPU GO"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/logo"/>
 
     <ImageView
-
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:src="@drawable/logo_kpu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
+        app:layout_constraintTop_toBottomOf="@id/title"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonInfo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:text="@string/button_info"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@id/buttonDaftar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo"/>
@@ -34,6 +48,8 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:text="@string/button_daftar"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@id/buttonInfo"
         app:layout_constraintTop_toTopOf="@id/buttonInfo"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -44,6 +60,8 @@
         android:layout_height="150dp"
         android:layout_marginTop="10dp"
         android:text="@string/button_about"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buttonInfo"
         app:layout_constraintEnd_toStartOf="@id/buttonLogout"/>
@@ -53,6 +71,8 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:text="@string/button_logout"
+        android:backgroundTint="@color/red"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/buttonAbout"
         app:layout_constraintTop_toTopOf="@id/buttonAbout" />

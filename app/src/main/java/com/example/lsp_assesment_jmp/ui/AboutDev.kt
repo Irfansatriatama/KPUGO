@@ -1,10 +1,8 @@
-package com.example.lsp_assesment_jmp
+package com.example.lsp_assesment_jmp.ui
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.lsp_assesment_jmp.R
 
 class AboutDev : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

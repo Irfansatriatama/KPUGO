@@ -61,6 +61,7 @@ dependencies {
     implementation("com.google.android.gms:play-services-location:18.0.0")
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     kapt ("com.github.bumptech.glide:compiler:4.15.1")
+    implementation(kotlin("script-runtime"))
 
-    
+
 }

@@ -18,6 +18,10 @@
     <string name="namaDev">Muhammad Irfan Satriatama</string>
     <string name="emailDev">muhamamad.irfan.satriatama.tik21@mhsw.pnj.ac.id</string>
     <string name="nim">2107412052</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="galeri">Galeri</string>
+    <string name="camera">Camera</string>
 
     <string-array name="jenis_kelamin">
         <item>Laki-laki</item>
